@@ -16,9 +16,13 @@
 
 * [spring boot+dubbo官方参考demo](https://github.com/apache/dubbo-spring-boot-project)
 
+* [dubbo 注解方式官方demo](https://github.com/apache/dubbo-samples/tree/master/dubbo-samples-annotation)
+
+
+
 ## 项目模块
 #### 服务提供者
-    具体配置参考provider/provider_readme.md
+    具体配置参考 provider\dubbo_provider.md
 #### 服务消费者
-
+    具体配置参考 consumer\dubbo_consumer.md
 #### 服务监控中心

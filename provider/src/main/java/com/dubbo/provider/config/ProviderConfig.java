@@ -10,7 +10,10 @@ import org.springframework.context.annotation.PropertySource;
  * @descrption 服务提供方注解
  */
 @Configuration
-@EnableDubbo
+/**
+ * 扫描包下dubbo注解的文件
+ */
+@EnableDubbo(scanBasePackages = "com.dubbo.provider")
 @PropertySource("classpath:/application.properties")
 public class ProviderConfig {
 
