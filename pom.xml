@@ -15,6 +15,12 @@
     <name>demo</name>
     <description>dubbo项目主工程</description>
 
+    <properties>
+        <skip_maven_deploy>true</skip_maven_deploy>
+        <dubbo.version>2.7.0</dubbo.version>
+        <java.version>1.8</java.version>
+    </properties>
+
     <!-- 导入子模块 -->
     <modules>
         <!-- 服务消费方 -->
@@ -22,10 +28,6 @@
         <!-- 服务提供方  -->
         <module>provider</module>
     </modules>
-
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
 
     <dependencyManagement>
         <dependencies>
@@ -54,10 +56,25 @@
             <scope>test</scope>
         </dependency>
 
+        <!--Apache Dubbo -->
         <dependency>
             <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo-dependencies-bom</artifactId>
-            <version>2.7.3</version>
+            <artifactId>dubbo</artifactId>
+            <version>${dubbo.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>servlet-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
     </dependencies>
