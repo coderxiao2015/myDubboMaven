@@ -11,7 +11,7 @@ import org.springframework.context.annotation.PropertySource;
  */
 @Configuration
 /**
- * 扫描包下dubbo注解的文件
+ * @EnableDubbo 扫描包下dubbo注解的文件
  */
 @EnableDubbo(scanBasePackages = "com.dubbo.provider")
 @PropertySource("classpath:/application.properties")
