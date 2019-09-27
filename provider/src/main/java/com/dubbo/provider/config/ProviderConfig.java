@@ -1,6 +1,7 @@
 package com.dubbo.provider.config;
 
 import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
@@ -14,10 +15,23 @@ import org.springframework.context.annotation.PropertySource;
  * @EnableDubbo 扫描包下dubbo注解的文件
  */
 @EnableDubbo(scanBasePackages = "com.dubbo.provider")
-@PropertySource("classpath:/application.properties")
+@PropertySource("classpath:/dubbo_provider.properties")
 public class ProviderConfig {
 
+    int timeout;
 
+    @Bean
+    public ProviderConfig providerConfig(){
+        ProviderConfig providerConfig=new ProviderConfig();
+        providerConfig.setTimeout(1000);
+        return providerConfig;
+    }
 
+    public int getTimeout() {
+        return timeout;
+    }
 
+    public void setTimeout(int timeout) {
+        this.timeout = timeout;
+    }
 }
