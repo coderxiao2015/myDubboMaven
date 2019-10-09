@@ -20,6 +20,10 @@ public class ProviderConfig {
 
     int timeout;
 
+    /**
+     * @Bean 注解和<bean></bean>的标签作用一样，都是用来实例化一个对象
+     * @return
+     */
     @Bean
     public ProviderConfig providerConfig(){
         ProviderConfig providerConfig=new ProviderConfig();

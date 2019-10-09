@@ -1,4 +1,4 @@
-# springboot+maven+dubbo项目
+# springboot+maven+dubbo+log4j+jsp项目
 
 ##项目简介
 * dubbo 服务治理框架结构图 ![Image text](https://raw.githubusercontent.com/coderxiao2015/myDubboMaven/master/doc/dubbo_%E7%BB%93%E6%9E%84%E5%9B%BE.png)
@@ -18,6 +18,7 @@
 
 * [dubbo 注解方式官方demo](https://github.com/apache/dubbo-samples/tree/master/dubbo-samples-annotation)
 
+* [1k star 的spring boot + dubbo项目](https://github.com/vector4wang/spring-boot-quick.git)
 
 
 ## 项目模块
