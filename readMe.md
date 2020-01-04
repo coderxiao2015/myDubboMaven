@@ -23,6 +23,7 @@
 
 ## 项目模块
 #### 服务提供者
+* [服务提供者参考地址](https://github.com/apache/dubbo-spring-boot-project/blob/master/README_CN.md)
     具体配置参考 provider\dubbo_provider.md
 #### 服务消费者
     具体配置参考 consumer\dubbo_consumer.md
