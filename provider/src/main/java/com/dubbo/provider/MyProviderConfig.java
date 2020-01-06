@@ -1,7 +1,8 @@
-package com.dubbo.provider.config;
+package com.dubbo.provider;
 
+import org.apache.dubbo.config.ProviderConfig;
+import org.apache.dubbo.config.RegistryConfig;
 import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,7 +19,7 @@ import org.springframework.context.annotation.PropertySource;
  */
 @EnableDubbo(scanBasePackages = "com.dubbo.provider")
 @PropertySource("classpath:/dubbo_provider.properties")
-public class ProviderConfig {
+public class MyProviderConfig {
 
     @Value("${spring.application.timeout}")
     int timeout;
@@ -36,20 +37,11 @@ public class ProviderConfig {
      * @return
      */
     @Bean
-    public ProviderConfig providerConfig(){
-        ProviderConfig providerConfig=new ProviderConfig();
-        providerConfig.setTimeout(1000);
-        providerConfig.setTimeout(timeout);
-        providerConfig.setRegisterAddress(registerAddress);
-        return providerConfig;
+    public RegistryConfig registryConfig() {
+        RegistryConfig registryConfig = new RegistryConfig();
+        registryConfig.setAddress(registerAddress);
+        return registryConfig;
     }
 
 
-    public void setRegisterAddress(String registerAddress) {
-        this.registerAddress = registerAddress;
-    }
-
-    public void setTimeout(int timeout) {
-        this.timeout = timeout;
-    }
 }

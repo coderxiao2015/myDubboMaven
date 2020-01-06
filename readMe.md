@@ -18,7 +18,7 @@
 
 * [dubbo 注解方式官方demo](https://github.com/apache/dubbo-samples/tree/master/dubbo-samples-annotation)
 
-* [1k star 的spring boot + dubbo项目](https://github.com/vector4wang/spring-boot-quick.git)
+* [4k star 的spring boot + dubbo项目](https://github.com/apache/dubbo-spring-boot-project)
 
 
 ## 项目模块

@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.dubbo</groupId>
-    <artifactId>xiaoyi</artifactId>
+    <artifactId>mydubbo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>demo</name>
@@ -87,7 +87,7 @@
         </dependency>
 
         <!-- Zookeeper dependencies -->
-        <dependency>
+    <!--    <dependency>
             <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo-dependencies-zookeeper</artifactId>
             <type>pom</type>
@@ -97,7 +97,7 @@
                     <artifactId>slf4j-log4j12</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
+        </dependency>-->
 
     </dependencies>
 
