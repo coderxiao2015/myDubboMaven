@@ -1,8 +1,8 @@
-package com.dubbo.provider;
+package com.dubbo.provider.config;
 
-import org.apache.dubbo.config.ProviderConfig;
+
+import org.apache.dubbo.config.ApplicationConfig;
 import org.apache.dubbo.config.RegistryConfig;
-import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,9 +17,8 @@ import org.springframework.context.annotation.PropertySource;
 /**
  * @EnableDubbo 扫描包下dubbo注解的文件
  */
-@EnableDubbo(scanBasePackages = "com.dubbo.provider")
-@PropertySource("classpath:/dubbo_provider.properties")
-public class MyProviderConfig {
+@PropertySource("classpath:/dubbo-provider.properties")
+public class ProviderConfig {
 
     @Value("${spring.application.timeout}")
     int timeout;
@@ -29,6 +28,9 @@ public class MyProviderConfig {
      */
     @Value("${dubbo.register.address}")
     private String registerAddress;
+
+    @Value("${dubbo.application.name}")
+    private String serviceName;
 
 
 
@@ -40,7 +42,16 @@ public class MyProviderConfig {
     public RegistryConfig registryConfig() {
         RegistryConfig registryConfig = new RegistryConfig();
         registryConfig.setAddress(registerAddress);
+        registryConfig.setTimeout(timeout);
         return registryConfig;
+    }
+
+    @Bean
+    public ApplicationConfig applicationConfig(){
+        ApplicationConfig config = new ApplicationConfig();
+        config.setName(serviceName);
+        config.setRegistry(registryConfig());
+        return config;
     }
 
 

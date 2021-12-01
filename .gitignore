@@ -1,3 +1,8 @@
 HELP.md
 target/
 .idea/
+api/api.iml
+api/common-api.iml
+consumer/consumer.iml
+mydubbo.iml
+provider/provider.iml

@@ -1,4 +1,4 @@
-package com.dubbo.provider.hello;
+package hello;
 
 public interface SayHelloService {
 

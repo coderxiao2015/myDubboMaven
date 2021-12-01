@@ -1,15 +1,17 @@
 package com.dubbo.provider;
 
+import com.dubbo.provider.config.ProviderConfig;
+import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
 
 
 @SpringBootApplication(scanBasePackages = "com.dubbo.provider")
 @PropertySource("classpath:/application.properties")
+@EnableDubbo
 public class ProviderApplication {
 
     /**
@@ -21,14 +23,11 @@ public class ProviderApplication {
      * @param args
      */
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyProviderConfig.class);
-        context.start();
+       /* AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ProviderConfig.class);
+        context.start();*/
+
+        ConfigurableApplicationContext run = SpringApplication.run(ProviderApplication.class);
+
     }
 
-    /**
-     * ②默认读取xml 配置文件
-     */
-   /* public static void main(String[] args) {
-        SpringApplication.run(ProviderApplication.class,args);
-    }*/
 }
