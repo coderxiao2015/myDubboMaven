@@ -16,7 +16,18 @@ public class ConsumerApplicationTests {
 
     @Test
     public void contextLoads() {
-        consumer.consume();
+        for(int i=0;i<100;i++){
+            new Thread(new Runnable() {
+                public void run() {
+                    try {
+                        consumer.consume();
+                    }catch(Exception e){
+                       // e.printStackTrace();
+                        System.out.println("异常:"+e.getMessage());
+                    }
+                }
+            }).start();
+        }
     }
 
 }

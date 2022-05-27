@@ -17,11 +17,6 @@ public class SayHelloServiceImpl implements SayHelloService {
     public String sayHello(String name){
         System.out.println(name+"调用服务"+" "+serviceName+"提供服务");
         System.out.println(System.currentTimeMillis());
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         return String.format("[%s] : Hello, %s", serviceName, name);
     }
 

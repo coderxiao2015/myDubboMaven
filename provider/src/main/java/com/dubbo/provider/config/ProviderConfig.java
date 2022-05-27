@@ -29,6 +29,8 @@ public class ProviderConfig {
     @Value("${dubbo.register.address}")
     private String registerAddress;
 
+
+
     @Value("${dubbo.application.name}")
     private String serviceName;
 

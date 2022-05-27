@@ -6,3 +6,4 @@ api/common-api.iml
 consumer/consumer.iml
 mydubbo.iml
 provider/provider.iml
+.DS_Store
