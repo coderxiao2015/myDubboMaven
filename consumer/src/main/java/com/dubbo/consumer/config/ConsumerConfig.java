@@ -8,22 +8,27 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
+/**
+ * 走默认配置
+ */
 @Configuration
 @PropertySource("classpath:/dubbo-consumer.properties")
 @ComponentScan(value = "com.dubbo.consumer")
 public class ConsumerConfig {
 
+/*
 
-    /**
+    @Value("${spring.application.timeout}")
+    int timeout;
+
+    */
+/**
      *  zookeeper 注册中心地址
-     */
-    @Value("${dubbo.register.address}")
+     *//*
+
+
+    @Value("${dubbo.registry.address}")
     private String registerAddress;
-
-    @Value("${dubbo.consumer.check}")
-    private Boolean isCheck;
-
-
 
 
 
@@ -32,15 +37,18 @@ public class ConsumerConfig {
 
 
 
-    /**
+
+    */
+/**
      * @Bean 注解和<bean></bean>的标签作用一样，都是用来实例化一个对象
      * @return
-     */
-    @Bean
+     *//*
+
+   @Bean
     public RegistryConfig registryConfig() {
         RegistryConfig registryConfig = new RegistryConfig();
         registryConfig.setAddress(registerAddress);
-        registryConfig.setCheck(isCheck);
+        registryConfig.setTimeout(timeout);
         return registryConfig;
     }
 
@@ -51,5 +59,8 @@ public class ConsumerConfig {
         config.setRegistry(registryConfig());
         return config;
     }
+*/
+
+
 
 }
