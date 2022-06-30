@@ -7,3 +7,7 @@ consumer/consumer.iml
 mydubbo.iml
 provider/provider.iml
 .DS_Store
+provider/mvnw
+consumer/mvnw.cmd
+provider/.mvn/*
+consumer/.mvn/*

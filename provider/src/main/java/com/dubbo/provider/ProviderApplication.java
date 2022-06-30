@@ -1,5 +1,6 @@
 package com.dubbo.provider;
 
+import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 import com.dubbo.provider.config.ProviderConfig;
 import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.SpringApplication;
@@ -11,6 +12,7 @@ import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication(scanBasePackages = "com.dubbo.provider")
 @PropertySource("classpath:/application.properties")
+@NacosPropertySource(dataId = "nacos-dynamic", autoRefreshed = true,groupId = "NACOS-GROUP")
 @EnableDubbo
 public class ProviderApplication {
 

@@ -1,5 +1,6 @@
 package com.dubbo.provider.hello;
 
+import com.alibaba.nacos.api.config.annotation.NacosValue;
 import hello.SayHelloService;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,6 +14,10 @@ public class SayHelloServiceImpl implements SayHelloService {
     @Value("${dubbo.application.name}")
     private String serviceName;
 
+
+    @NacosValue(value = "${nacos.config.name}", autoRefreshed = true)
+    private String nacosConfigName;
+
     @Override
     public String sayHello(String name){
         System.out.println(name+"调用服务"+" "+serviceName+"提供服务");
@@ -20,4 +25,10 @@ public class SayHelloServiceImpl implements SayHelloService {
         return String.format("[%s] : Hello, %s", serviceName, name);
     }
 
+
+
+    @Override
+    public String getConfigName() {
+        return nacosConfigName;
+    }
 }
