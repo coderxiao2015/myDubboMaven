@@ -1,6 +1,7 @@
 package com.dubbo.provider.config;
 
 
+import com.alibaba.cloud.nacos.NacosConfigProperties;
 import org.apache.dubbo.config.ApplicationConfig;
 import org.apache.dubbo.config.RegistryConfig;
 import org.springframework.beans.factory.annotation.Value;
@@ -36,6 +37,10 @@ public class ProviderConfig {
 
 
 
+
+
+
+
     /**
      * @Bean 注解和<bean></bean>的标签作用一样，都是用来实例化一个对象
      * @return
@@ -55,6 +60,10 @@ public class ProviderConfig {
         config.setRegistry(registryConfig());
         return config;
     }
+
+
+
+
 
 
 }

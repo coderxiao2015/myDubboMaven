@@ -1,7 +1,7 @@
 package test;
 
 import com.dubbo.provider.ProviderApplication;
-import hello.SayHelloService;
+import com.dubbo.provider.data.ServerMetaInfo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +13,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class MyTest {
 
     @Autowired
-    SayHelloService sayHelloService;
+    ServerMetaInfo sayHelloService;
 
     @Test
     public void test(){
-        System.out.println(sayHelloService.getConfigName());
+        System.out.println(sayHelloService.getNacosConfigName());
     }
 
 }

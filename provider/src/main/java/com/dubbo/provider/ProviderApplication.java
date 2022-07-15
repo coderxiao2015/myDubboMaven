@@ -1,18 +1,18 @@
 package com.dubbo.provider;
 
 import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
-import com.dubbo.provider.config.ProviderConfig;
+import com.dubbo.provider.data.ServerMetaInfo;
 import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.PropertySource;
+
 
 
 @SpringBootApplication(scanBasePackages = "com.dubbo.provider")
 @PropertySource("classpath:/application.properties")
-@NacosPropertySource(dataId = "nacos-dynamic", autoRefreshed = true,groupId = "NACOS-GROUP")
+@NacosPropertySource(dataId = "myDubboProvider.yaml", autoRefreshed = true)
 @EnableDubbo
 public class ProviderApplication {
 
@@ -25,10 +25,16 @@ public class ProviderApplication {
      * @param args
      */
     public static void main(String[] args) {
-       /* AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ProviderConfig.class);
-        context.start();*/
+        ConfigurableApplicationContext applicationContext = SpringApplication.run(ProviderApplication.class);
 
-        ConfigurableApplicationContext run = SpringApplication.run(ProviderApplication.class);
+        String userAge = applicationContext.getEnvironment().getProperty("nacos");
+        System.err.println("=================age: "+userAge);
+
+        ServerMetaInfo bean = applicationContext.getBean(ServerMetaInfo.class);
+        System.err.println("=================bean-nacos: "+bean.getNacosConfigName());
+
+
+
 
     }
 

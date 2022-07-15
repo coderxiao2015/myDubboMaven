@@ -15,8 +15,7 @@ public class SayHelloServiceImpl implements SayHelloService {
     private String serviceName;
 
 
-    @NacosValue(value = "${nacos.config.name}", autoRefreshed = true)
-    private String nacosConfigName;
+
 
     @Override
     public String sayHello(String name){
@@ -27,8 +26,4 @@ public class SayHelloServiceImpl implements SayHelloService {
 
 
 
-    @Override
-    public String getConfigName() {
-        return nacosConfigName;
-    }
 }
